@@ -8,7 +8,7 @@
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.3.0/alpine.js"></script>
         <title>Tailwind CSS</title>
     </head>
-    <body class="bg-gray-200">
+    <body class="bg-gray-400 text-gray-800">
         <!-- Example Syntax - Dropdown/Modal -->
         <!-- x-data = data/ define state -->
         <!-- @click = event listener -->
@@ -29,7 +29,7 @@
         </div> -->
 
         <!-- Model example -->
-        <!-- <div class="container mx-auto px-4 xl:px-64 mt-24 ml-24" x-data="{ isOpen:false }">
+        <div class="container mx-auto px-4 xl:px-64 mt-24 ml-24" x-data="{ isOpen:false }">
             <h2 class="text-2xl font-bold">Modal</h2>
             
             <div>
@@ -41,7 +41,14 @@
                     Open Modal
                 </button>
 
-                <div style="background-color: rgba(0, 0, 0, .5);" class=" mx-auto absolute top-10 flex items-center shadow-lg overflow-y-auto" x-show="isOpen">
+                <div 
+                    style="background-color: rgba(0, 0, 0, .5);" 
+                    class=" mx-auto absolute top-10 flex items-center shadow-lg overflow-y-auto" 
+                    x-show.transition.in.duration.400ms.opacity.scale.25.origin.top.left.out.duration.200ms.opacity.scale.25.origin.top.left="isOpen"
+                    
+                   
+                    
+                >
                     
                     <div class="container mx-auto rounded p-4 mt-2 overflow-y-auto">
                         <div class="bg-white rounded px-8 py-8">
@@ -58,7 +65,14 @@
 
                 </div>
             </div>
-        </div> -->
+        </div>
+
+        <!-- x-transition:enter="transition transform ease-out duration-1000"
+        x-transition:enter-start="opacity-0 scale-90"
+        x-transition:enter-end="opacity-100 scale-100 origin-top-left"
+        x-transition:leave="transition transform ease-out duration-200"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-90 origin-top-left" -->
 
         <!-- Tabs example -->
 
@@ -96,11 +110,11 @@
 
         <!-- Scroll Detection example -->
 
-        <div x-data="{ atTop: true }">
+        <!-- <div x-data="{ atTop: true }">
             <nav 
-                class="p-4 w-full fixed" 
-                :class="{ 'bg-white shadow-md' : !atTop }" 
-                @scroll.window="atTop = (window.pageYOFFset > 20) ? false : strue">
+                class="p-4 w-full fixed text-center" 
+                :class="{ 'bg-green shadow-md' : !atTop }" 
+                @scroll.window="atTop = (window.pageYOFFset > 20) ? false : true">
                
                 Top Nav goes here - fixed
             </nav>
@@ -118,7 +132,25 @@
                 Integer lacinia interdum eleifend. Vestibulum condimentum feugiat blandit. Duis maximus ultricies enim a posuere. Duis non condimentum ex. Sed quis porta metus. Etiam quis viverra mauris. 
                 Vestibulum id nisl finibus ante malesuada blandit.
             </div>
-        </div>
+        </div> -->
+
+        <!-- Fetch and X-Init directive -->
+        <!-- <div 
+            class="container mx-auto px-4" 
+            x-data="{ quote:'' }" 
+            x-init="
+                fetch('https://api.kanye.rest')
+                .then(response => response.json())
+                .then(data => quote = data.quote)         
+            "
+        >
+
+            <div class="flex items-center text-center justify-center h-screen text-2xl italic"
+            x-text="`&quot;${quote}&quot;`"></div>
+
+        </div> -->
+
+        
 
     </body>
 </html>
