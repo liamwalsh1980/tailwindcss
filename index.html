@@ -11,7 +11,95 @@
     </head>
     <body class="bg-black text-white">
 
-        <div class="mx-16 my-8" x-data="{ image: '' }">
+        <nav class="bg-black" x-data="{ open: true }">
+            <div class="max-w-7xl mx-auto pt-4 pl-10 pr-8 md:px-10 lg:px-16">
+                <div class="relative flex items-center justify-between h-24">
+        
+                    <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        
+                    </div>
+        
+                    <div class="flex-1 flex items-center justify-between">
+                        <div class="flex-shrink-0 flex items-center">
+                            <img x-show="open" class="h-8 sm:h-10 w-auto" src="https://www.scolmore.com/_images/_header/logo.png" alt="Workflow">
+                        </div>
+                        <div class="hidden md:block sm:ml-6 text-xs">
+                            <div class="flex items-center space-x-4 text-center md:space-x-2 lg:space-x-8 xl:space-x-10">
+                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                                <a href="#" class="hover:bg-gray-700 px-3 py-2 font-medium" aria-current="page">Latest Courses</a>
+        
+                                <a href="#" class="hover:bg-gray-700 px-3 py-2 font-medium">Company Courses</a>
+        
+                                <a href="#" class="hover:bg-gray-700 px-3 py-2 font-medium">Why Choose Us</a>
+        
+                                <a href="#" class="hover:bg-gray-700 px-3 py-2 font-medium">Scolmore Websites</a>
+                                <div class="flex">
+                                    <button class="border-2 w-16 h-8 mr-4 hover:bg-white hover:text-black">Log In</button>
+                                    <button class="border-2 w-16 h-8 mr-4 hover:bg-white hover:text-black">Sign Up</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-y-0 right-0 flex items-center md:hidden md:inset-auto md:ml-6 md:pr-0">
+                        <!-- Mobile menu button-->
+                        <button type="button" class="inline-flex items-center justify-center focus:outline-none focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false"
+                                @click="open = ! open">
+                            <span class="sr-only">Open main menu</span>
+                            <!--
+                              Icon when menu is closed.
+                              Heroicon name: outline/menu
+                              Menu open: "hidden", Menu closed: "block"
+                            -->
+                            <svg x-show="open" class="h-6 w-6 sm:w-10 sm:h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <!--
+                              Icon when menu is open.
+                              Heroicon name: outline/x
+                              Menu open: "block", Menu closed: "hidden"
+                            -->
+                            <svg x-show="! open" class="h-6 w-6 sm:w-10 sm:h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Mobile menu, show/hide based on menu state. -->
+            <div class="md:hidden" id="mobile-menu" x-show="! open" @click.away="open = true">
+                <div class="px-2 pt-2 pb-3 space-y-4 text-xs text-center flex flex-col justify-center items-center">
+                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+                    <img class="h-8 sm:h-10 mb-12" src="https://www.scolmore.com/_images/_header/logo.png" alt="Workflow">
+                    <p>Scolmore Group Companies</p>
+        
+                    <div class="flex">
+                        <div class="space-y-4 my-4 mx-4">
+                            <a href="#" class="block font-thin">Click Scolmore</a>
+                            <a href="#" class="block font-thin">Ovia Lighting</a>
+                            <a href="#" class="block font-thin">ESP</a>
+                            <a href="#" class="block font-thin">Unicrimp</a>
+                            <a href="#" class="block font-thin">Click Smart +</a>
+                        </div>
+                        <div class="space-y-4 my-4 mx-4">
+                            <a href="#" class="block font-thin">Scolmore Dubai</a>
+                            <a href="#" class="block font-thin">Click Litehouse</a>
+                            <a href="#" class="block font-thin">IEC Lock</a>
+                            <a href="#" class="block font-thin">ESPI</a>
+                            <a href="#" class="block font-thin">Sangamo</a>
+                        </div>
+                    </div>
+        
+        
+        
+        
+                </div>
+            </div>
+        
+        </nav>
+
+        <!-- <div class="mx-16 my-8" x-data="{ image: '' }">
             <div class="flex justify-center space-x-4">
                 <a href="#" @click.prevent="image = 'image1'"><img src="images/mens-bikes.jpg" alt="" class="w-24"></a>
                 <a href="#" @click.prevent="image = 'image2'"><img src="images/womens-bikes.jpg" alt="" class="w-24"></a>
@@ -24,7 +112,7 @@
                 <img src="images/urban-bikes.jpg" alt="" class="w-2/3 h-auto" x-show="image === 'image3'">
                 <img src="images/accessories.jpg" alt="" class="w-2/3 h-auto" x-show="image === 'image4'">
             </div>
-        </div>
+        </div> -->
         
 
         <!-- <div class="flex flex-col sm:flex-row mt-4 sm:m-8">
