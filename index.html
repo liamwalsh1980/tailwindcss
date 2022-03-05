@@ -11,54 +11,40 @@
     </head>
     <body class="bg-black text-white">
 
-        <nav class="bg-black" x-data="{ open: true }">
+        <!-- Scolmore NavBar -->
+
+        <!-- <nav class="bg-black" x-data="{ open: true }">
             <div class="max-w-7xl mx-auto pt-4 pl-10 pr-8 md:px-10 lg:px-16">
                 <div class="relative flex items-center justify-between h-24">
-        
+
                     <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        
+                
                     </div>
-        
+
                     <div class="flex-1 flex items-center justify-between">
                         <div class="flex-shrink-0 flex items-center">
                             <img x-show="open" class="h-8 sm:h-10 w-auto" src="https://www.scolmore.com/_images/_header/logo.png" alt="Workflow">
                         </div>
                         <div class="hidden md:block sm:ml-6 text-xs">
                             <div class="flex items-center space-x-4 text-center md:space-x-2 lg:space-x-8 xl:space-x-10">
-                                <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                                 <a href="#" class="hover:bg-gray-700 px-3 py-2 font-medium" aria-current="page">Latest Courses</a>
-        
                                 <a href="#" class="hover:bg-gray-700 px-3 py-2 font-medium">Company Courses</a>
-        
                                 <a href="#" class="hover:bg-gray-700 px-3 py-2 font-medium">Why Choose Us</a>
-        
                                 <a href="#" class="hover:bg-gray-700 px-3 py-2 font-medium">Scolmore Websites</a>
                                 <div class="flex">
                                     <button class="border-2 w-16 h-8 mr-4 hover:bg-white hover:text-black">Log In</button>
                                     <button class="border-2 w-16 h-8 mr-4 hover:bg-white hover:text-black">Sign Up</button>
-
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="absolute inset-y-0 right-0 flex items-center md:hidden md:inset-auto md:ml-6 md:pr-0">
-                        <!-- Mobile menu button-->
                         <button type="button" class="inline-flex items-center justify-center focus:outline-none focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false"
                                 @click="open = ! open">
                             <span class="sr-only">Open main menu</span>
-                            <!--
-                              Icon when menu is closed.
-                              Heroicon name: outline/menu
-                              Menu open: "hidden", Menu closed: "block"
-                            -->
                             <svg x-show="open" class="h-6 w-6 sm:w-10 sm:h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
-                            <!--
-                              Icon when menu is open.
-                              Heroicon name: outline/x
-                              Menu open: "block", Menu closed: "hidden"
-                            -->
                             <svg x-show="! open" class="h-6 w-6 sm:w-10 sm:h-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg>
@@ -66,11 +52,8 @@
                     </div>
                 </div>
             </div>
-        
-            <!-- Mobile menu, show/hide based on menu state. -->
             <div class="md:hidden" id="mobile-menu" x-show="! open" @click.away="open = true">
                 <div class="px-2 pt-2 pb-3 space-y-4 text-xs text-center flex flex-col justify-center items-center">
-                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <img class="h-8 sm:h-10 mb-12" src="https://www.scolmore.com/_images/_header/logo.png" alt="Workflow">
                     <p>Scolmore Group Companies</p>
         
@@ -90,14 +73,12 @@
                             <a href="#" class="block font-thin">Sangamo</a>
                         </div>
                     </div>
-        
-        
-        
-        
                 </div>
             </div>
-        
-        </nav>
+        </nav> -->
+
+
+        <!-- Alpine image selection -->
 
         <!-- <div class="mx-16 my-8" x-data="{ image: '' }">
             <div class="flex justify-center space-x-4">
@@ -114,6 +95,8 @@
             </div>
         </div> -->
         
+
+        <!-- Scolmore large image -->
 
         <!-- <div class="flex flex-col sm:flex-row mt-4 sm:m-8">
             <img src="images/1642071460519.jpeg" alt="" class="w-full sm:w-2/3 h-auto">
@@ -138,6 +121,8 @@
             </div>
         </div> -->
 
+
+        <!-- Scolmore medium image -->
         <!-- <div class="grid grid-cols-1 sm:grid-cols-2 mt-4 sm:m-8">
             <img src="images/1642071460519.jpeg" alt="" class="w-full h-auto">
             <div class="pl-4 md:pl-4">
@@ -161,7 +146,89 @@
             </div>
         </div> -->
 
+
+        <div x-data="{ course: 'none'}">
+            <div class="space-y-8 mx-10 xl:mx-auto max-w-screen-xl hidden md:flex">
+                <div class="flex items-center justify-between text-lg sm:text-2xl md:text-4xl w-full">
+                    <button @click.prevent="course = 'click'" type="button"><img src="images/scolmore-logo.png" alt="" class="h-6 sm:h-8 md:h-10 lg:h-12"></button>
+                    <button @click.prevent="course = 'scolmore'" type="button"><img src="images/unicrimp-logo.gif" alt="" class="h-6 sm:h-8 md:h-10 lg:h-12 opacity-50"></button>
+                    <button type="button"><img src="images/scolmore-logo.png" alt="" class="h-6 sm:h-8 md:h-10 lg:h-12 opacity-50"></button>
+                    <button type="button"><img src="images/unicrimp-logo.gif" alt="" class="h-6 sm:h-8 md:h-10 lg:h-12 opacity-50"></button>
+                </div>
+            </div>
+        
+            <div id="" class="mt-8 md:mt-12 lg:mt-16 mx-10 xl:mx-auto max-w-screen-xl hidden md:flex">
+                <div x-show="course === 'click'" class="flex">
+                    <button class="mb-10 md:mb-16 pr-2" aria-label="Slide Previous" @click="swiper.slidePrev()">
+                        <i class="fas fa-chevron-left text-2xl sm:text-3xl"></i>
+                    </button>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 flex justify-center items-center text-xs lg:text-sx 2xl:text-lg">
+                        <div>
+                            <img src="images/1642071460519.jpeg" alt="" class=" border-b-2 md:border-b-4 lg:border-b-8 border-red-600 opacity-50 hover:opacity-100">
+                            <div class="flex md:flex-col justify-between pt-4 md:pt-8">
+                                <h2 class="capitalize font-bold w-1/3 md:w-full">course name here</h2>
+                                <p class="capitalize font-thin">small description here...</p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="images/1642071460519.jpeg" alt="" class=" border-b-2 md:border-b-4 lg:border-b-8 border-red-600 opacity-50 hover:opacity-100">
+                            <div class="flex md:flex-col justify-between pt-4 md:pt-8">
+                                <h2 class="capitalize font-bold w-1/3 md:w-full">course name here</h2>
+                                <p class="capitalize font-thin">small description here...</p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="images/1642071460519.jpeg" alt="" class=" border-b-2 md:border-b-4 lg:border-b-8 border-red-600 opacity-50 hover:opacity-100">
+                            <div class="flex md:flex-col justify-between pt-4 md:pt-8">
+                                <h2 class="capitalize font-bold w-1/3 md:w-full">course name here</h2>
+                                <p class="capitalize font-thin w-1/2 md:w-full text-left">small description here...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mb-10 md:mb-16 pl-2" aria-label="Slide Next" @click="swiper.slidePrev()">
+                        <i class="fas fa-chevron-right text-2xl sm:text-3xl"></i>
+                    </button>
+                </div>
+                <div x-show="course === 'scolmore'" class="flex">
+                    <button class="mb-10 md:mb-16 pr-2" aria-label="Slide Previous" @click="swiper.slidePrev()">
+                        <i class="fas fa-chevron-left text-2xl sm:text-3xl"></i>
+                    </button>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 flex justify-center items-center text-xs lg:text-sx 2xl:text-lg">
+                        <div>
+                            <img src="images/1642071460519.jpeg" alt="" class=" border-b-2 md:border-b-4 lg:border-b-8 border-green-600 opacity-50 hover:opacity-100">
+                            <div class="flex md:flex-col justify-between pt-4 md:pt-8">
+                                <h2 class="capitalize font-bold w-1/3 md:w-full">course name here</h2>
+                                <p class="capitalize font-thin">small description here...</p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="images/1642071460519.jpeg" alt="" class=" border-b-2 md:border-b-4 lg:border-b-8 border-green-600 opacity-50 hover:opacity-100">
+                            <div class="flex md:flex-col justify-between pt-4 md:pt-8">
+                                <h2 class="capitalize font-bold w-1/3 md:w-full">course name here</h2>
+                                <p class="capitalize font-thin">small description here...</p>
+                            </div>
+                        </div>
+                        <div>
+                            <img src="images/1642071460519.jpeg" alt="" class=" border-b-2 md:border-b-4 lg:border-b-8 border-green-600 opacity-50 hover:opacity-100">
+                            <div class="flex md:flex-col justify-between pt-4 md:pt-8">
+                                <h2 class="capitalize font-bold w-1/3 md:w-full">course name here</h2>
+                                <p class="capitalize font-thin w-1/2 md:w-full text-left">small description here...</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="mb-10 md:mb-16 pl-2" aria-label="Slide Next" @click="swiper.slidePrev()">
+                        <i class="fas fa-chevron-right text-2xl sm:text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="" class="space-y-8 mt-8 md:mt-12 lg:mt-16 mx-10 xl:mx-auto max-w-screen-xl hidden md:flex">
+                
+            </div>
+
+
+        
+
+        </div>
     </body>
 </html>
-
-<!-- grid grid-cols-1 md:grid-cols-6 -->
